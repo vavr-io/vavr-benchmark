@@ -21,7 +21,6 @@ package io.vavr.collection;
 
 import io.vavr.Function1;
 import io.vavr.JmhRunner;
-import org.junit.Test;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 
@@ -46,11 +45,6 @@ public class MapBenchmark {
             ReplaceAllOneByOne.class,
             Remove.class
     );
-
-    @Test
-    public void testAsserts() {
-        JmhRunner.runDebugWithAsserts(CLASSES);
-    }
 
     public static void main(String... args) {
         JmhRunner.runNormalNoAsserts(CLASSES);

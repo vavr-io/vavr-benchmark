@@ -20,7 +20,6 @@
 package io.vavr.collection;
 
 import io.vavr.JmhRunner;
-import org.junit.Test;
 import org.openjdk.jmh.annotations.*;
 
 import static io.vavr.JmhRunner.create;
@@ -33,11 +32,6 @@ public class HashSetBenchmark {
             Iterate.class,
             Remove.class
     );
-
-    @Test
-    public void testAsserts() {
-        JmhRunner.runDebugWithAsserts(CLASSES);
-    }
 
     public static void main(String... args) {
         JmhRunner.runNormalNoAsserts(CLASSES);

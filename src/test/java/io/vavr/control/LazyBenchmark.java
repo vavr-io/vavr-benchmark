@@ -23,7 +23,6 @@ import io.vavr.JmhRunner;
 import io.vavr.Lazy;
 import io.vavr.collection.Array;
 import io.vavr.collection.Iterator;
-import org.junit.Test;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 
@@ -36,11 +35,7 @@ public class LazyBenchmark {
             Get.class
     );
 
-    @Test
-    public void testAsserts() { JmhRunner.runDebugWithAsserts(CLASSES); }
-
     public static void main(String... args) {
-        JmhRunner.runDebugWithAsserts(CLASSES, JAVA, VAVR);
         JmhRunner.runSlowNoAsserts(CLASSES, JAVA, VAVR);
     }
 
