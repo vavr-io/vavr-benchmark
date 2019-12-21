@@ -21,4 +21,4 @@ cache:
     - '$HOME/.m2/repository'
 
 script:
-  - mvn clean verify
+  - mvn test-compile
