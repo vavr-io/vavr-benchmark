@@ -26,17 +26,9 @@ import java.text.DecimalFormat;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
-import static java.lang.Math.max;
-
 public class MemoryUsage {
     private static final DecimalFormat FORMAT = new DecimalFormat("#,##0");
     private static Map<Integer, LinkedHashSet<Seq<CharSeq>>> memoryUsages = TreeMap.empty(); // if forked, this will be reset every time
-
-    private static Seq<Integer> columnSizes(int size) {
-        return memoryUsages.get(size)
-                .map(rows -> rows.map(row -> row.map(CharSeq::length))).get()
-                .reduce((row1, row2) -> row1.zip(row2).map(ts -> max(ts._1, ts._2)));
-    }
 
     static void storeMemoryUsages(int elementCount, Object target) {
         memoryUsages = memoryUsages.put(elementCount, memoryUsages.get(elementCount).getOrElse(LinkedHashSet.empty()).add(Array.of(
