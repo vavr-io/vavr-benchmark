@@ -22,7 +22,6 @@ package io.vavr.idiom;
 import io.vavr.JmhRunner;
 import io.vavr.Tuple;
 import io.vavr.collection.Array;
-import org.junit.Test;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
@@ -39,11 +38,6 @@ public class TupleBenchmark {
             Tuple4Benchmark.class,
             Tuple8Benchmark.class
     );
-
-    @Test
-    public void testAsserts() {
-        JmhRunner.runDebugWithAsserts(CLASSES);
-    }
 
     public static void main(String... args) {
         JmhRunner.runNormalNoAsserts(CLASSES);

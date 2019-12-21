@@ -20,18 +20,16 @@
 package io.vavr.collection;
 
 import io.vavr.JmhRunner;
-import org.junit.Test;
 import org.openjdk.jmh.annotations.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static java.util.Arrays.asList;
 import static io.vavr.JmhRunner.create;
 import static io.vavr.JmhRunner.getRandomValues;
 import static io.vavr.collection.Collections.areEqual;
+import static java.util.Arrays.asList;
 import static scala.collection.JavaConverters.asJavaCollection;
 import static scala.collection.JavaConverters.asScalaBuffer;
 
@@ -48,11 +46,6 @@ public class ListBenchmark {
             Iterate.class
             , Fill.class
     );
-
-    @Test
-    public void testAsserts() {
-        JmhRunner.runDebugWithAsserts(CLASSES);
-    }
 
     public static void main(String... args) {
         JmhRunner.runNormalNoAsserts(CLASSES);
@@ -88,8 +81,8 @@ public class ListBenchmark {
             scalaMutable = create(v -> (scala.collection.mutable.MutableList<Integer>) scala.collection.mutable.MutableList$.MODULE$.apply(asScalaBuffer(v)), asList(ELEMENTS), v -> areEqual(asJavaCollection(v), javaMutable));
 
             scalaPersistent = JmhRunner.<java.util.List<Integer>, scala.collection.immutable.List<Integer>> create(
-                    v -> scala.collection.immutable.List$.MODULE$.apply(asScalaBuffer(v)), 
-                    javaMutable, 
+                    v -> scala.collection.immutable.List$.MODULE$.apply(asScalaBuffer(v)),
+                    javaMutable,
                     v -> areEqual(asJavaCollection(v), javaMutable)
             );
             clojurePersistent = create(clojure.lang.PersistentList::create, javaMutable, v -> areEqual((Iterable<?>) v, javaMutable));

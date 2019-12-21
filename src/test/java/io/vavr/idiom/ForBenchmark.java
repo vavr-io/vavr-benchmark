@@ -21,7 +21,6 @@ package io.vavr.idiom;
 
 import io.vavr.JmhRunner;
 import io.vavr.collection.Array;
-import org.junit.Test;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
@@ -32,9 +31,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiFunction;
 
-import static java.util.stream.Collectors.toList;
 import static io.vavr.API.*;
 import static io.vavr.JmhRunner.getRandomValues;
+import static java.util.stream.Collectors.toList;
 
 /**
  * Benchmark for nested loops vs Vavr's For().yield comprehensions.
@@ -45,11 +44,6 @@ public class ForBenchmark {
     static final Array<Class<?>> CLASSES = Array(
             For.class
     );
-
-    @Test
-    public void testAsserts() {
-        JmhRunner.runDebugWithAsserts(CLASSES);
-    }
 
     public static void main(String... args) {
         JmhRunner.runNormalNoAsserts(CLASSES);

@@ -22,7 +22,6 @@ package io.vavr.collection;
 import fj.P;
 import io.vavr.JmhRunner;
 import io.vavr.Tuple2;
-import org.junit.Test;
 import org.openjdk.jmh.annotations.*;
 import scala.math.Ordering;
 import scala.math.Ordering$;
@@ -33,9 +32,9 @@ import scalaz.Order$;
 import java.util.Collections;
 import java.util.Objects;
 
-import static java.util.Arrays.asList;
 import static io.vavr.JmhRunner.create;
 import static io.vavr.JmhRunner.getRandomValues;
+import static java.util.Arrays.asList;
 import static scala.collection.JavaConverters.asScalaBuffer;
 
 @SuppressWarnings({ "UnnecessaryFullyQualifiedName", "UnnecessarilyQualifiedInnerClassAccess" })
@@ -47,13 +46,7 @@ public class PriorityQueueBenchmark {
             , Fill.class
     );
 
-    @Test
-    public void testAsserts() {
-        JmhRunner.runDebugWithAsserts(CLASSES);
-    }
-
     public static void main(String... args) {
-        JmhRunner.runDebugWithAsserts(CLASSES);
         JmhRunner.runNormalNoAsserts(CLASSES);
     }
 

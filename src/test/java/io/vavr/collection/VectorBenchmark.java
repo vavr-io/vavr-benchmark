@@ -20,7 +20,6 @@
 package io.vavr.collection;
 
 import io.vavr.JmhRunner;
-import org.junit.Test;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import scala.collection.generic.CanBuildFrom;
@@ -31,13 +30,13 @@ import java.util.Comparator;
 import java.util.Objects;
 import java.util.Random;
 
-import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toList;
 import static io.vavr.JmhRunner.Includes.*;
 import static io.vavr.JmhRunner.*;
 import static io.vavr.collection.Collections.areEqual;
 import static io.vavr.collection.Vector.collector;
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.toList;
 import static scala.collection.JavaConverters.asJavaCollection;
 import static scala.collection.JavaConverters.asScalaBuffer;
 
@@ -63,11 +62,7 @@ public class VectorBenchmark {
             , Fill.class
     );
 
-    @Test
-    public void testAsserts() { JmhRunner.runDebugWithAsserts(CLASSES); }
-
     public static void main(String... args) {
-        JmhRunner.runDebugWithAsserts(CLASSES);
         JmhRunner.runNormalNoAsserts(CLASSES, JAVA, FUNCTIONAL_JAVA, PCOLLECTIONS, ECOLLECTIONS, CLOJURE, SCALA, VAVR);
     }
 

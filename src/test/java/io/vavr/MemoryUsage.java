@@ -32,22 +32,6 @@ public class MemoryUsage {
     private static final DecimalFormat FORMAT = new DecimalFormat("#,##0");
     private static Map<Integer, LinkedHashSet<Seq<CharSeq>>> memoryUsages = TreeMap.empty(); // if forked, this will be reset every time
 
-    /** Calculate the occupied memory of different internals */
-    static void printAndReset() {
-        for (Tuple2<Integer, LinkedHashSet<Seq<CharSeq>>> entry : memoryUsages) {
-            final Seq<Integer> columnSizes = columnSizes(entry._1);
-            System.out.println(String.format("\nfor `%d` elements", entry._1));
-            for (Seq<CharSeq> stats : entry._2) {
-                final String format = String.format("  %s → %s bytes",
-                        stats.get(0).padTo(columnSizes.get(0), ' '),
-                        stats.get(1).leftPadTo(columnSizes.get(1), ' ')
-                );
-                System.out.println(format);
-            }
-        }
-
-        memoryUsages = memoryUsages.take(0); // reset
-    }
     private static Seq<Integer> columnSizes(int size) {
         return memoryUsages.get(size)
                 .map(rows -> rows.map(row -> row.map(CharSeq::length))).get()

@@ -63,7 +63,6 @@ public class JmhRunner {
                 TryBenchmark.class,
                 TupleBenchmark.class
         );
-        runDebugWithAsserts(CLASSES);
         runSlowNoAsserts(CLASSES);
     }
 
@@ -84,12 +83,6 @@ public class JmhRunner {
 
         @Override
         public String toString() { return name; }
-    }
-
-    /** enables debugging and assertions for benchmarks and production code - the speed results will be totally unreliable */
-    public static void runDebugWithAsserts(Array<Class<?>> groups, Includes... includes) {
-        run(0, 1, 1, ForkJvm.DISABLE, VerboseMode.SILENT, Assertions.ENABLE, PrintInlining.DISABLE, groups, includes);
-        MemoryUsage.printAndReset();
     }
 
     @SuppressWarnings("unused")
@@ -146,8 +139,7 @@ public class JmhRunner {
 
     /* Options */
     private enum ForkJvm {
-        ENABLE(1),
-        DISABLE(0);
+        ENABLE(1);
 
         final int forkCount;
 
@@ -157,7 +149,6 @@ public class JmhRunner {
     }
 
     private enum Assertions {
-        ENABLE("-enableassertions"),
         DISABLE("-disableassertions");
 
         final String vmArg;

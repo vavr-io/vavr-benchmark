@@ -20,7 +20,6 @@
 package io.vavr.collection;
 
 import io.vavr.JmhRunner;
-import org.junit.Test;
 import org.openjdk.jmh.annotations.*;
 
 import java.util.Objects;
@@ -42,13 +41,7 @@ public class CharSeqBenchmark {
             Iterate.class
     );
 
-    @Test
-    public void testAsserts() {
-        JmhRunner.runDebugWithAsserts(CLASSES);
-    }
-
     public static void main(java.lang.String... args) {
-        JmhRunner.runDebugWithAsserts(CLASSES);
         JmhRunner.runNormalNoAsserts(CLASSES);
     }
 

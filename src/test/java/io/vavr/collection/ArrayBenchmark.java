@@ -20,16 +20,15 @@
 package io.vavr.collection;
 
 import io.vavr.JmhRunner;
-import org.junit.Test;
 import org.openjdk.jmh.annotations.*;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static java.util.Arrays.asList;
 import static io.vavr.JmhRunner.create;
 import static io.vavr.JmhRunner.getRandomValues;
 import static io.vavr.collection.Collections.areEqual;
+import static java.util.Arrays.asList;
 
 public class ArrayBenchmark {
     static final Array<Class<?>> CLASSES = Array.of(
@@ -43,11 +42,6 @@ public class ArrayBenchmark {
             Iterate.class
             , Fill.class
     );
-
-    @Test
-    public void testAsserts() {
-        JmhRunner.runDebugWithAsserts(CLASSES);
-    }
 
     public static void main(String... args) {
         JmhRunner.runNormalNoAsserts(CLASSES);
