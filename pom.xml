@@ -189,22 +189,6 @@ We use these goals frequently to keep the dependencies and plugins up-to-date:
                             <arg>-Xlint:-options</arg>
                         </compilerArgs>
                     </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>testCompile</goal>
-                            </goals>
-                            <configuration>
-                                <annotationProcessorPaths>
-                                    <path>
-                                        <groupId>org.openjdk.jmh</groupId>
-                                        <artifactId>jmh-generator-annprocess</artifactId>
-                                        <version>${jmh.version}</version>
-                                    </path>
-                                </annotationProcessorPaths>
-                            </configuration>
-                        </execution>
-                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
