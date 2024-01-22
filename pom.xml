@@ -65,7 +65,7 @@ We use these goals frequently to keep the dependencies and plugins up-to-date:
         <dependency>
             <groupId>org.clojure</groupId>
             <artifactId>clojure</artifactId>
-            <version>1.9.0-alpha14</version>
+            <version>1.9.0</version>
         </dependency>
         <dependency>
             <groupId>org.pcollections</groupId>
