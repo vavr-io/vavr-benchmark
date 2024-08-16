@@ -14,7 +14,7 @@ We use these goals frequently to keep the dependencies and plugins up-to-date:
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.vavr</groupId>
     <artifactId>vavr-benchmark</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-alpha-4</version>
     <packaging>jar</packaging>
     <name>Vavr Benchmark</name>
     <description>Benchmarks for Vavr.</description>
@@ -33,6 +33,11 @@ We use these goals frequently to keep the dependencies and plugins up-to-date:
         <tag>HEAD</tag>
     </scm>
     <developers>
+        <developer>
+            <id>pivovarit</id>
+            <name>Grzegorz Piwowarek</name>
+            <email>gpiwowarek@gmail.com</email>
+        </developer>
         <developer>
             <id>danieldietrich</id>
             <name>Daniel Dietrich</name>
