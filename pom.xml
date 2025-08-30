@@ -53,7 +53,7 @@ We use these goals frequently to keep the dependencies and plugins up-to-date:
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <maven.versions.version>2.7</maven.versions.version>
         <maven.surefire.version>3.0.0-M3</maven.surefire.version>
-        <maven.exec.version>1.6.0</maven.exec.version>
+        <maven.exec.version>3.5.1</maven.exec.version>
     </properties>
     <dependencies>
         <dependency>
